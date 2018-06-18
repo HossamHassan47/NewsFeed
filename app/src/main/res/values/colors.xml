@@ -5,10 +5,8 @@
     <color name="colorAccent">#ff3817</color>
     <color name="colorAccentDark">#c63205</color>
 
-    <!-- Text color for the details of the earthquake in the list item -->
-    <color name="textColorEarthquakeDetails">#B4BAC0</color>
-
-    <!-- Text color for the primary location of the earthquake in the list item -->
-    <color name="textColorEarthquakeLocation">#2B3D4D</color>
+    <color name="color_title_background">#0a5e96</color>
+    <color name="color_open_hours_background">#0e84d3</color>
+    <color name="color_description_background">#ECEFF1</color>
 
 </resources>

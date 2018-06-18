@@ -7,13 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.wordpress.hossamhassan47.newsfeed.R;
 import com.wordpress.hossamhassan47.newsfeed.model.NewsItem;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class NewsAdapter extends ArrayAdapter<NewsItem> {
@@ -34,35 +34,26 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
         NewsItem current = getItem(position);
 
         // Title
-        TextView txtTitle = listItemView.findViewById(R.id.text_view_webTitle);
+        TextView txtTitle = listItemView.findViewById(R.id.text_view_title);
         txtTitle.setText(current.getWebTitle());
 
         // Section Name
-        TextView txtSection = listItemView.findViewById(R.id.text_view_sectionName);
+        TextView txtSection = listItemView.findViewById(R.id.text_view_section);
         txtSection.setText(current.getSectionName());
 
+        // Date
         TextView txtDate = listItemView.findViewById(R.id.text_view_date);
-        txtDate.setText(current.getWebPublicationDate());
+        txtDate.setText(getDate(current.getWebPublicationDate()));
 
-        TextView txtTime = listItemView.findViewById(R.id.text_view_time);
-        txtTime.setText(current.getWebPublicationDate());
+        // Image
+        ImageView imgThumbnail = (ImageView) listItemView.findViewById(R.id.image_view_thumbnail);
+
+        Glide.with(getContext()).load(current.getThumbnail()).into(imgThumbnail);
 
         return listItemView;
     }
 
-    /**
-     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
-     */
-    private String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);
-    }
-
-    /**
-     * Return the formatted date string (i.e. "4:30 PM") from a Date object.
-     */
-    private String formatTime(Date dateObject) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
-        return timeFormat.format(dateObject);
+    private String getDate(String longDate) {
+        return longDate.substring(0, longDate.lastIndexOf("T"));
     }
 }

@@ -33,26 +33,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LoaderManager.LoaderCallbacks<List<NewsItem>> {
 
-    /**
-     * URL for earthquake data from the USGS dataset
-     */
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=12%20years%20a%20slave&format=json&tag=film/film,tone/reviews&from-date=2010-01-01&show-tags=contributor&show-fields=starRating,headline,thumbnail,short-url&order-by=relevance&api-key=test";
+            "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=starRating,headline,thumbnail,short-url&order-by=newest&api-key=test";
 
-    /**
-     * Adapter for the list of earthquakes
-     */
+    private String currentSection = "football";
+
     private NewsAdapter mAdapter;
 
-    /**
-     * Constant value for the earthquake loader ID. We can choose any integer.
-     * This really only comes into play if you're using multiple loaders.
-     */
     private static final int NEWS_LOADER_ID = 1;
 
-    /**
-     * TextView that is displayed when the list is empty
-     */
     private TextView mEmptyStateTextView;
     private ProgressBar mLoadSpinner;
 
@@ -71,6 +60,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        navigationView.getMenu().getItem(0).setChecked(true);
+        //setTitle(R.string.nav_);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list_view_news);
@@ -112,13 +104,7 @@ public class MainActivity extends AppCompatActivity
         // Get details on the currently active default data network
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-            // Get a reference to the LoaderManager, in order to interact with loaders.
-            LoaderManager loaderManager = getLoaderManager();
-
-            // Initialize the loader. Pass in the int ID constant defined above and pass in null for
-            // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
-            // because this activity implements the LoaderCallbacks interface).
-            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+            getLoaderManager().initLoader(NEWS_LOADER_ID, null, this);
         } else {
             // Otherwise, display error
             // First, hide loading indicator so error message will be visible
@@ -132,7 +118,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int id, Bundle args) {
-        return new NewsLoader(this, NEWS_REQUEST_URL);
+        return new NewsLoader(this, String.format(NEWS_REQUEST_URL, currentSection));
     }
 
     @Override
@@ -190,28 +176,38 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_lifestyle) {
+            currentSection = "lifeandstyle";
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_football) {
+            currentSection = "football";
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_politics) {
+            currentSection = "politics";
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_opinions) {
+            currentSection = "commentisfree";
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_world_news) {
+            currentSection = "world";
+
+        } else if (id == R.id.nav_tv_radio) {
+            currentSection = "tv-and-radio";
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        // Restart loader
+        mLoadSpinner.setVisibility(View.VISIBLE);
+        getLoaderManager().restartLoader(NEWS_LOADER_ID, null, this);
+
         return true;
     }
 }
