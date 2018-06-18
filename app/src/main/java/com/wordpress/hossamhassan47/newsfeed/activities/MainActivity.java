@@ -60,9 +60,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         navigationView.getMenu().getItem(0).setChecked(true);
-        //setTitle(R.string.nav_);
+        setTitle(R.string.nav_football);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list_view_news);
@@ -183,21 +184,27 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_lifestyle) {
             currentSection = "lifeandstyle";
+            setTitle(R.string.nav_life_and_style);
 
         } else if (id == R.id.nav_football) {
             currentSection = "football";
+            setTitle(R.string.nav_football);
 
         } else if (id == R.id.nav_politics) {
             currentSection = "politics";
+            setTitle(R.string.nav_politics);
 
         } else if (id == R.id.nav_opinions) {
             currentSection = "commentisfree";
+            setTitle(R.string.nav_opinion);
 
         } else if (id == R.id.nav_world_news) {
             currentSection = "world";
+            setTitle(R.string.nav_world_news);
 
         } else if (id == R.id.nav_tv_radio) {
             currentSection = "tv-and-radio";
+            setTitle(R.string.nav_television_and_radio);
 
         }
 
@@ -210,4 +217,5 @@ public class MainActivity extends AppCompatActivity
 
         return true;
     }
+
 }

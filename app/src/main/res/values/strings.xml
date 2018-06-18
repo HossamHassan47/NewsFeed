@@ -12,4 +12,13 @@
 
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
+
+    <string name="nav_football">Football</string>
+    <string name="nav_television_and_radio"><![CDATA[Television & radio]]></string>
+    <string name="nav_life_and_style">Life and style</string>
+    <string name="nav_politics">Politics</string>
+    <string name="nav_world_news">World news</string>
+    <string name="nav_opinion">Opinion</string>
+
+
 </resources>

@@ -5,8 +5,8 @@
     <color name="colorAccent">#ff3817</color>
     <color name="colorAccentDark">#c63205</color>
 
-    <color name="color_title_background">#0a5e96</color>
-    <color name="color_open_hours_background">#0e84d3</color>
+    <color name="color_title_background">#125d8e</color>
+    <color name="color_section_background">#2786c4</color>
     <color name="color_description_background">#ECEFF1</color>
 
 </resources>

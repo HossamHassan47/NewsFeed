@@ -41,7 +41,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/color_open_hours_background"
+                android:background="@color/color_section_background"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -50,10 +50,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="left"
                     android:paddingLeft="@dimen/txt_title_margin_horizontal"
                     android:paddingRight="@dimen/txt_title_margin_horizontal"
                     android:textColor="#FFFFFF"
-                    android:gravity="left"
                     android:textSize="@dimen/txt_section_text_size" />
 
 
@@ -62,10 +62,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="right"
                     android:paddingLeft="@dimen/txt_title_margin_horizontal"
                     android:paddingRight="@dimen/txt_title_margin_horizontal"
                     android:textColor="#FFFFFF"
-                    android:gravity="right"
                     android:textSize="@dimen/txt_section_text_size" />
 
 

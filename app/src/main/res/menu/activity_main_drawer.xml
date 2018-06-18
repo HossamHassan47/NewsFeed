@@ -6,28 +6,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_football"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Football" />
+            android:icon="@drawable/ic_football"
+            android:title="@string/nav_football" />
         <item
             android:id="@+id/nav_tv_radio"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Television &amp; radio" />
+            android:icon="@drawable/ic_television"
+            android:title="@string/nav_television_and_radio" />
         <item
             android:id="@+id/nav_lifestyle"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Life and style" />
+            android:icon="@drawable/ic_lifestyle"
+            android:title="@string/nav_life_and_style" />
         <item
             android:id="@+id/nav_politics"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Politics" />
+            android:icon="@drawable/ic_politics"
+            android:title="@string/nav_politics" />
         <item
             android:id="@+id/nav_world_news"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="World news" />
+            android:icon="@drawable/ic_world_news"
+            android:title="@string/nav_world_news" />
         <item
             android:id="@+id/nav_opinions"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Opinion" />
+            android:icon="@drawable/ic_opinion"
+            android:title="@string/nav_opinion" />
     </group>
 
 </menu>
