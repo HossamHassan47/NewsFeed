@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
     private static final String NEWS_REQUEST_URL =
             "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=starRating,headline,thumbnail,short-url&order-by=newest&api-key=test";
 
-    private String currentSection = "football";
+    private String currentSection = "world";
 
     private NewsAdapter mAdapter;
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setItemIconTintList(null);
 
         navigationView.getMenu().getItem(0).setChecked(true);
-        setTitle(R.string.nav_football);
+        setTitle(R.string.nav_world_news);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list_view_news);
