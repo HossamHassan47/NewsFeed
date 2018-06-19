@@ -7,9 +7,11 @@ public class NewsItem {
     private String sectionName;
     private String webPublicationDate;
     private String webTitle;
+    private String trailText;
     private String webUrl;
     private String apiUrl;
     private String thumbnail;
+    private String contributor;
 
     public NewsItem(){
 
@@ -85,5 +87,21 @@ public class NewsItem {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public String getContributor() {
+        return contributor;
+    }
+
+    public void setContributor(String contributor) {
+        this.contributor = contributor;
+    }
+
+    public String getTrailText() {
+        return trailText;
+    }
+
+    public void setTrailText(String trailText) {
+        this.trailText = trailText;
     }
 }

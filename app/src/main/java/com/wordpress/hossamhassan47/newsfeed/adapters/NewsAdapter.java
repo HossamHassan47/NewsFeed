@@ -3,6 +3,7 @@ package com.wordpress.hossamhassan47.newsfeed.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,19 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
         // Title
         TextView txtTitle = listItemView.findViewById(R.id.text_view_title);
         txtTitle.setText(current.getWebTitle());
+
+        // Trial Text
+        TextView txtTrialText = listItemView.findViewById(R.id.text_view_trial_text);
+        txtTrialText.setText(current.getTrailText());
+
+        // Contributor
+        TextView txtContributor = listItemView.findViewById(R.id.text_view_contributor);
+        if (!TextUtils.isEmpty(current.getContributor())) {
+            txtContributor.setText(current.getContributor());
+            txtContributor.setVisibility(View.VISIBLE);
+        } else {
+            txtContributor.setVisibility(View.GONE);
+        }
 
         // Section Name
         TextView txtSection = listItemView.findViewById(R.id.text_view_section);

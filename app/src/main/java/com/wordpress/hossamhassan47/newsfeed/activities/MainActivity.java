@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LoaderManager.LoaderCallbacks<List<NewsItem>> {
 
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=starRating,headline,thumbnail,short-url&order-by=newest&api-key=test";
+            "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=headline,thumbnail,trailText&show-tags=contributor&order-by=newest&api-key=test";
 
     private String currentSection = "world";
 

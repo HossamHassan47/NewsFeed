@@ -73,7 +73,7 @@ public class QueryUtils {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the news JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -134,6 +134,8 @@ public class QueryUtils {
      * parsing the given JSON response.
      */
     private static List<NewsItem> extractResultFromJson(String newsJSON) {
+        Log.v(LOG_TAG, newsJSON);
+
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
@@ -156,6 +158,7 @@ public class QueryUtils {
 
                 JSONObject currentNewsItem = newsArray.getJSONObject(i);
 
+                // Main fields
                 newsItem.setId(currentNewsItem.getString("id"));
                 newsItem.setType(currentNewsItem.getString("type"));
                 newsItem.setSectionId(currentNewsItem.getString("sectionId"));
@@ -165,14 +168,23 @@ public class QueryUtils {
                 newsItem.setWebUrl(currentNewsItem.getString("webUrl"));
                 newsItem.setApiUrl(currentNewsItem.getString("apiUrl"));
 
+                // Other fields (Thumbnail, Trial Text)
                 JSONObject fields = currentNewsItem.getJSONObject("fields");
                 newsItem.setThumbnail(fields.getString("thumbnail"));
+                newsItem.setTrailText(fields.getString("trailText"));
+
+                // Contributor tag
+                JSONArray tags = currentNewsItem.getJSONArray("tags");
+                if (tags.length() > 0) {
+                    JSONObject contributor= tags.getJSONObject(0);
+                    newsItem.setContributor(contributor.getString("firstName") + " " +contributor.getString("lastName"));
+                }
 
                 newsItems.add(newsItem);
             }
 
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
+            Log.e(LOG_TAG, "Problem parsing the news JSON results", e);
         }
 
         return newsItems;

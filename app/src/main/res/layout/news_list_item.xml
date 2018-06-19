@@ -34,41 +34,71 @@
                 android:paddingLeft="@dimen/txt_title_margin_horizontal"
                 android:paddingRight="@dimen/txt_title_margin_horizontal"
                 android:paddingTop="@dimen/txt_title_margin_vertical"
-                android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/txt_title_text_size" />
+
+            <!--Trial Text-->
+            <TextView
+                android:id="@+id/text_view_trial_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_description_background"
+                android:paddingBottom="@dimen/txt_title_margin_vertical"
+                android:paddingLeft="@dimen/txt_title_margin_horizontal"
+                android:paddingRight="@dimen/txt_title_margin_horizontal"
+                android:paddingTop="@dimen/txt_title_margin_vertical"
+                android:textSize="@dimen/txt_description_text_size" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_section_background"
+                android:paddingTop="@dimen/txt_title_margin_vertical"
+                android:paddingBottom="@dimen/txt_title_margin_vertical"
+
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
+                <!--Section Name-->
                 <TextView
                     android:id="@+id/text_view_section"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="left"
                     android:paddingLeft="@dimen/txt_title_margin_horizontal"
                     android:paddingRight="@dimen/txt_title_margin_horizontal"
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/txt_section_text_size" />
 
-
-                <TextView
-                    android:id="@+id/text_view_date"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:paddingLeft="@dimen/txt_title_margin_horizontal"
-                    android:paddingRight="@dimen/txt_title_margin_horizontal"
-                    android:textColor="#FFFFFF"
-                    android:textSize="@dimen/txt_section_text_size" />
+                    android:orientation="vertical">
 
+                    <!--Contributor-->
+                    <TextView
+                        android:id="@+id/text_view_contributor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingLeft="@dimen/txt_title_margin_horizontal"
+                        android:paddingRight="@dimen/txt_title_margin_horizontal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/txt_section_text_size" />
 
+                    <!--Date-->
+                    <TextView
+                        android:id="@+id/text_view_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:paddingLeft="@dimen/txt_title_margin_horizontal"
+                        android:paddingRight="@dimen/txt_title_margin_horizontal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/txt_section_text_size" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
