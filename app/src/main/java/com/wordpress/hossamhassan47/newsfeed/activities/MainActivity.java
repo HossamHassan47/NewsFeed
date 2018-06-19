@@ -30,19 +30,29 @@ import com.wordpress.hossamhassan47.newsfeed.model.NewsItem;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main Activity that used to display news stories
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LoaderManager.LoaderCallbacks<List<NewsItem>> {
 
+    // Request URL
     private static final String NEWS_REQUEST_URL =
             "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=headline,thumbnail,trailText&show-tags=contributor&order-by=newest&api-key=test";
 
+    // Current Section Name
     private String currentSection = "world";
 
-    private NewsAdapter mAdapter;
-
+    // Loader ID
     private static final int NEWS_LOADER_ID = 1;
 
+    // News Adapter
+    private NewsAdapter mAdapter;
+
+    // Empty Text View
     private TextView mEmptyStateTextView;
+
+    // Progress Indicator
     private ProgressBar mLoadSpinner;
 
     @Override
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Navigation Drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -62,6 +73,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
+        // Set first item selected by default
         navigationView.getMenu().getItem(0).setChecked(true);
         setTitle(R.string.nav_world_news);
 
@@ -76,27 +88,29 @@ public class MainActivity extends AppCompatActivity
         newsListView.setAdapter(mAdapter);
 
         // Set an item click listener on the ListView, which sends an intent to a web browser
-        // to open a website with more information about the selected earthquake.
+        // to open a website with more information about the selected news story.
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Find the current earthquake that was clicked on
+                // Find the current news story that was clicked on
                 NewsItem currentNewsItem = mAdapter.getItem(position);
 
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
-                Uri earthquakeUri = Uri.parse(currentNewsItem.getWebUrl());
+                Uri newsItemUri = Uri.parse(currentNewsItem.getWebUrl());
 
-                // Create a new intent to view the earthquake URI
-                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
+                // Create a new intent to view the news story URI
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, newsItemUri);
 
                 // Send the intent to launch a new activity
                 startActivity(websiteIntent);
             }
         });
 
+        // Set Empty view message
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
+        // Get a reference to the Loading Indicator
         mLoadSpinner = findViewById(R.id.loading_indicator);
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -104,6 +118,7 @@ public class MainActivity extends AppCompatActivity
 
         // Get details on the currently active default data network
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
         if (networkInfo != null && networkInfo.isConnected()) {
             getLoaderManager().initLoader(NEWS_LOADER_ID, null, this);
         } else {
@@ -119,20 +134,22 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int id, Bundle args) {
+        // Set Current Section in the News Request URL
         return new NewsLoader(this, String.format(NEWS_REQUEST_URL, currentSection));
     }
 
     @Override
     public void onLoadFinished(Loader<List<NewsItem>> loader, List<NewsItem> data) {
+        // Hide loading indicator
         mLoadSpinner.setVisibility(View.GONE);
 
-        // Set empty state text to display "No earthquakes found."
+        // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
-        // Clear the adapter of previous earthquake data
+        // Clear the adapter of previous news data
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
+        // If there is a valid list of {@link NewsItem}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (data != null && !data.isEmpty()) {
             mAdapter.addAll(data);
@@ -182,28 +199,29 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        // Set Current section name & Title based on selected item
         if (id == R.id.nav_lifestyle) {
-            currentSection = "lifeandstyle";
+            currentSection = getString(R.string.section_lifeandstyle);
             setTitle(R.string.nav_life_and_style);
 
         } else if (id == R.id.nav_football) {
-            currentSection = "football";
+            currentSection = getString(R.string.section_football);
             setTitle(R.string.nav_football);
 
         } else if (id == R.id.nav_politics) {
-            currentSection = "politics";
+            currentSection = getString(R.string.section_politics);
             setTitle(R.string.nav_politics);
 
         } else if (id == R.id.nav_opinions) {
-            currentSection = "commentisfree";
+            currentSection = getString(R.string.section_opinions);
             setTitle(R.string.nav_opinion);
 
         } else if (id == R.id.nav_world_news) {
-            currentSection = "world";
+            currentSection = getString(R.string.section_worldnews);
             setTitle(R.string.nav_world_news);
 
         } else if (id == R.id.nav_tv_radio) {
-            currentSection = "tv-and-radio";
+            currentSection = getString(R.string.section_tv_radio);
             setTitle(R.string.nav_television_and_radio);
 
         }
@@ -211,7 +229,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
-        // Restart loader
+        // Restart loader to display selected section news stories
         mLoadSpinner.setVisibility(View.VISIBLE);
         getLoaderManager().restartLoader(NEWS_LOADER_ID, null, this);
 

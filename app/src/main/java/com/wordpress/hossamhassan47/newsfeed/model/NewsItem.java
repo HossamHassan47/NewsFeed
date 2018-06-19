@@ -2,14 +2,11 @@ package com.wordpress.hossamhassan47.newsfeed.model;
 
 public class NewsItem {
     private String id;
-    private String type;
-    private String sectionId;
     private String sectionName;
     private String webPublicationDate;
     private String webTitle;
     private String trailText;
     private String webUrl;
-    private String apiUrl;
     private String thumbnail;
     private String contributor;
 
@@ -17,6 +14,7 @@ public class NewsItem {
 
     }
 
+    // Id
     public String getId() {
         return id;
     }
@@ -25,22 +23,7 @@ public class NewsItem {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getSectionId() {
-        return sectionId;
-    }
-
-    public void setSectionId(String sectionId) {
-        this.sectionId = sectionId;
-    }
-
+    // Section Name
     public String getSectionName() {
         return sectionName;
     }
@@ -49,6 +32,7 @@ public class NewsItem {
         this.sectionName = sectionName;
     }
 
+    // Date
     public String getWebPublicationDate() {
         return webPublicationDate;
     }
@@ -57,6 +41,7 @@ public class NewsItem {
         this.webPublicationDate = webPublicationDate;
     }
 
+    // Title
     public String getWebTitle() {
         return webTitle;
     }
@@ -65,6 +50,7 @@ public class NewsItem {
         this.webTitle = webTitle;
     }
 
+    // URL
     public String getWebUrl() {
         return webUrl;
     }
@@ -73,14 +59,7 @@ public class NewsItem {
         this.webUrl = webUrl;
     }
 
-    public String getApiUrl() {
-        return apiUrl;
-    }
-
-    public void setApiUrl(String apiUrl) {
-        this.apiUrl = apiUrl;
-    }
-
+    // Image
     public String getThumbnail() {
         return thumbnail;
     }
@@ -89,6 +68,7 @@ public class NewsItem {
         this.thumbnail = thumbnail;
     }
 
+    // Contributor
     public String getContributor() {
         return contributor;
     }
@@ -97,6 +77,7 @@ public class NewsItem {
         this.contributor = contributor;
     }
 
+    // Trial Text
     public String getTrailText() {
         return trailText;
     }

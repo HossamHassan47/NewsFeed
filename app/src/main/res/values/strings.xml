@@ -20,5 +20,11 @@
     <string name="nav_world_news">World news</string>
     <string name="nav_opinion">Opinion</string>
 
+    <string name="section_lifeandstyle">lifeandstyle</string>
+    <string name="section_football">football</string>
+    <string name="section_politics">politics</string>
+    <string name="section_opinions">commentisfree</string>
+    <string name="section_worldnews">world</string>
+    <string name="section_tv_radio">tv-and-radio</string>
 
 </resources>

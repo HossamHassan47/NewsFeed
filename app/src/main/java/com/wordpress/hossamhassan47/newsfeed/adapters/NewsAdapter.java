@@ -61,7 +61,6 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
 
         // Image
         ImageView imgThumbnail = (ImageView) listItemView.findViewById(R.id.image_view_thumbnail);
-
         Glide.with(getContext()).load(current.getThumbnail()).into(imgThumbnail);
 
         return listItemView;

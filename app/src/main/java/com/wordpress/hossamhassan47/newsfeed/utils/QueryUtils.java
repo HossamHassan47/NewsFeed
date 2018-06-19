@@ -39,7 +39,7 @@ public class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "Problem building the URL ", e);
+            Log.e(LOG_TAG, "Problem building the URL", e);
         }
         return url;
     }
@@ -73,7 +73,7 @@ public class QueryUtils {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the news JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -110,7 +110,6 @@ public class QueryUtils {
      * Query the guardian and return a list of {@link NewsItem} objects.
      */
     public static List<NewsItem> fetchNewsData(String requestUrl) {
-
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -134,8 +133,6 @@ public class QueryUtils {
      * parsing the given JSON response.
      */
     private static List<NewsItem> extractResultFromJson(String newsJSON) {
-        Log.v(LOG_TAG, newsJSON);
-
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(newsJSON)) {
             return null;
@@ -160,13 +157,10 @@ public class QueryUtils {
 
                 // Main fields
                 newsItem.setId(currentNewsItem.getString("id"));
-                newsItem.setType(currentNewsItem.getString("type"));
-                newsItem.setSectionId(currentNewsItem.getString("sectionId"));
                 newsItem.setSectionName(currentNewsItem.getString("sectionName"));
                 newsItem.setWebPublicationDate(currentNewsItem.getString("webPublicationDate"));
                 newsItem.setWebTitle(currentNewsItem.getString("webTitle"));
                 newsItem.setWebUrl(currentNewsItem.getString("webUrl"));
-                newsItem.setApiUrl(currentNewsItem.getString("apiUrl"));
 
                 // Other fields (Thumbnail, Trial Text)
                 JSONObject fields = currentNewsItem.getJSONObject("fields");
@@ -176,15 +170,16 @@ public class QueryUtils {
                 // Contributor tag
                 JSONArray tags = currentNewsItem.getJSONArray("tags");
                 if (tags.length() > 0) {
-                    JSONObject contributor= tags.getJSONObject(0);
-                    newsItem.setContributor(contributor.getString("firstName") + " " +contributor.getString("lastName"));
+                    JSONObject contributor = tags.getJSONObject(0);
+                    newsItem.setContributor(contributor.getString("firstName") + " "
+                            + contributor.getString("lastName"));
                 }
 
                 newsItems.add(newsItem);
             }
 
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem parsing the news JSON results", e);
+            Log.e(LOG_TAG, "Problem parsing the JSON results", e);
         }
 
         return newsItems;
