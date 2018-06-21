@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 
     // Request URL
     private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=headline,thumbnail,trailText&show-tags=contributor&order-by=newest&api-key=test";
+            "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=headline,thumbnail,trailText&show-tags=contributor&order-by=newest&api-key=edb248f4-7da1-4302-8920-1dfd410c2585";
 
     // Current Section Name
     private String currentSection = "world";
@@ -188,6 +188,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
             return true;
         }
 
