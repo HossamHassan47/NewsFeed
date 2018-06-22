@@ -17,7 +17,6 @@
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
 
-
     <!--News Sections-->
     <string name="section_life_and_style">Life and style</string>
     <string name="section_football">Football</string>
@@ -62,13 +61,22 @@
     <string name="pref_category_ordering">ORDERING</string>
     <string name="pref_category_news">NEWS</string>
 
+    <!--Preference keys-->
     <string name="key_default_section">key_default_section</string>
     <string name="key_star_rating">key_star_rating</string>
     <string name="key_order_date">key_order_date</string>
     <string name="key_order_by">key_order_by</string>
 
+    <!--Preference titles-->
     <string name="title_default_section">Default news section</string>
     <string name="title_star_rating">Minimum star rating</string>
     <string name="title_order_date">Order date</string>
     <string name="title_order_by">Order by</string>
+
+    <!--Preference default values-->
+    <string name="section_default_value" translatable="true">world</string>
+    <string name="order_date_default_value" translatable="true">published</string>
+    <string name="order_by_default_value" translatable="true">newest</string>
+    <string name="star_rating_default_value">3</string>
+
 </resources>
