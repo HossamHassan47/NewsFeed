@@ -67,6 +67,6 @@ public class NewsAdapter extends ArrayAdapter<NewsItem> {
     }
 
     private String getDate(String longDate) {
-        return longDate.substring(0, longDate.lastIndexOf("T"));
+        return longDate.substring(0, longDate.lastIndexOf(getContext().getString(R.string.date_parser_char)));
     }
 }

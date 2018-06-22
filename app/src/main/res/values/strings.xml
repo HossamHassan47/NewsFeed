@@ -25,30 +25,30 @@
     <string name="section_world_news">World news</string>
     <string name="section_tv_radio"><![CDATA[Television & radio]]></string>
 
-    <string name="section_life_and_style_value" translatable="true">lifeandstyle</string>
-    <string name="section_football_value" translatable="true">football</string>
-    <string name="section_politics_value" translatable="true">politics</string>
-    <string name="section_opinions_value" translatable="true">commentisfree</string>
-    <string name="section_world_news_value" translatable="true">world</string>
-    <string name="section_tv_radio_value" translatable="true">tv-and-radio</string>
+    <string name="value_section_life_and_style" translatable="false">lifeandstyle</string>
+    <string name="value_section_football" translatable="false">football</string>
+    <string name="value_section_politics" translatable="false">politics</string>
+    <string name="value_section_opinions" translatable="false">commentisfree</string>
+    <string name="value_section_world_news" translatable="false">world</string>
+    <string name="value_section_tv_radio" translatable="false">tv-and-radio</string>
 
     <!--Order By-->
     <string name="order_by_newest">Newest</string>
     <string name="order_by_oldest">Oldest</string>
     <string name="order_by_relevance">Relevance</string>
 
-    <string name="order_by_newest_value" translatable="true">newest</string>
-    <string name="order_by_oldest_value" translatable="true">oldest</string>
-    <string name="order_by_relevance_value" translatable="true">relevance</string>
+    <string name="order_by_newest_value" translatable="false">newest</string>
+    <string name="order_by_oldest_value" translatable="false">oldest</string>
+    <string name="order_by_relevance_value" translatable="false">relevance</string>
 
     <!--Order Date-->
     <string name="order_date_published">Published</string>
     <string name="order_date_newspaper_edition">Newspaper Edition</string>
     <string name="order_date_last_modified">Last Modified</string>
 
-    <string name="order_date_published_value" translatable="true">published</string>
-    <string name="order_date_newspaper_edition_value" translatable="true">newspaper-edition</string>
-    <string name="order_date_last_modified_value" translatable="true">last-modified</string>
+    <string name="order_date_published_value" translatable="false">published</string>
+    <string name="order_date_newspaper_edition_value" translatable="false">newspaper-edition</string>
+    <string name="order_date_last_modified_value" translatable="false">last-modified</string>
 
     <!--Preference Categories-->
     <string name="pref_category_ordering">ORDERING</string>
@@ -76,5 +76,27 @@
     <string name="url_filter_star_rating">star-rating</string>
     <string name="url_filter_order_by">order-by</string>
     <string name="url_filter_use_date">use-date</string>
+    <string name="url_building_problem">Problem building the URL</string>
+
+    <string name="error_response_code">Error response code:</string>
+    <string name="error_invalid_json_result">Problem retrieving the JSON results.</string>
+    <string name="request_method">GET</string>
+    <string name="charset_format">UTF-8</string>
+    <string name="error_invalid_http_request">Problem making the HTTP request.</string>
+    <string name="json_object_response">response</string>
+    <string name="json_array_results">results</string>
+    <string name="news_fields_id">id</string>
+    <string name="news_fields_section_name">sectionName</string>
+    <string name="news_fields_date">webPublicationDate</string>
+    <string name="news_fields_web_title">webTitle</string>
+    <string name="news_fields_web_url">webUrl</string>
+    <string name="json_object_fields">fields</string>
+    <string name="news_fields_thumbnail">thumbnail</string>
+    <string name="news_fields_trail_text">trailText</string>
+    <string name="json_array_tags">tags</string>
+    <string name="news_fields_first_name">firstName</string>
+    <string name="news_fields_last_name">lastName</string>
+    <string name="error_parse_json_result">Problem parsing the JSON results</string>
+    <string name="date_parser_char">T</string>
 
 </resources>

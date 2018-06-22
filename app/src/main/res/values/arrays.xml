@@ -10,12 +10,12 @@
         <item>@string/section_tv_radio</item>
     </string-array>
     <string-array name="default_section_values">
-        <item>@string/section_world_news_value</item>
-        <item>@string/section_politics_value</item>
-        <item>@string/section_opinions_value</item>
-        <item>@string/section_life_and_style_value</item>
-        <item>@string/section_football_value</item>
-        <item>@string/section_tv_radio_value</item>
+        <item>@string/value_section_world_news</item>
+        <item>@string/value_section_politics</item>
+        <item>@string/value_section_opinions</item>
+        <item>@string/value_section_life_and_style</item>
+        <item>@string/value_section_football</item>
+        <item>@string/value_section_tv_radio</item>
     </string-array>
 
     <!--Order By-->

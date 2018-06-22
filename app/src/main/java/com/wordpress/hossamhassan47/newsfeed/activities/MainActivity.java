@@ -10,7 +10,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -152,35 +151,31 @@ public class MainActivity extends AppCompatActivity
     }
 
     private int getDefaultSectionIndex(){
-        int index;
-        switch (newsSection){
-            case "world":
-                index = 0;
-                setTitle(R.string.section_world_news);
-            break;
-            case "politics":
-                index = 1;
-                setTitle(R.string.section_politics);
-                break;
-            case "commentisfree":
-                index = 2;
-                setTitle(R.string.section_opinions);
-                break;
-            case "lifeandstyle":
-                index = 3;
-                setTitle(R.string.section_life_and_style);
-                break;
-            case "football":
-                index = 4;
-                setTitle(R.string.section_football);
-                break;
-            case "tv-and-radio":
-                index = 5;
-                setTitle(R.string.section_tv_radio);
-            default:
-                index = 0;
-                setTitle(R.string.section_world_news);
-                break;
+        int index = 0;
+
+        if (getString(R.string.value_section_world_news).equals(newsSection)) {
+            index = 0;
+            setTitle(R.string.section_world_news);
+
+        } else if (getString(R.string.value_section_politics).equals(newsSection)) {
+            index = 1;
+            setTitle(R.string.section_politics);
+
+        } else if (getString(R.string.value_section_opinions).equals(newsSection)) {
+            index = 2;
+            setTitle(R.string.section_opinions);
+
+        } else if (getString(R.string.value_section_life_and_style).equals(newsSection)) {
+            index = 3;
+            setTitle(R.string.section_life_and_style);
+
+        } else if (getString(R.string.value_section_football).equals(newsSection)) {
+            index = 4;
+            setTitle(R.string.section_football);
+
+        } else if (getString(R.string.value_section_tv_radio).equals(newsSection)) {
+            index = 5;
+            setTitle(R.string.section_tv_radio);
         }
 
         return index;
@@ -200,7 +195,6 @@ public class MainActivity extends AppCompatActivity
         uriBuilder.appendQueryParameter(getString(R.string.url_filter_order_by), orderBy);
         uriBuilder.appendQueryParameter(getString(R.string.url_filter_use_date), orderDate);
 
-        Log.v("URL", uriBuilder.toString());
         return new NewsLoader(this, uriBuilder.toString());
     }
 
@@ -269,27 +263,27 @@ public class MainActivity extends AppCompatActivity
 
         // Set Current section name & Title based on selected item
         if (id == R.id.nav_lifestyle) {
-            newsSection = getString(R.string.section_life_and_style_value);
+            newsSection = getString(R.string.value_section_life_and_style);
             setTitle(R.string.section_life_and_style);
 
         } else if (id == R.id.nav_football) {
-            newsSection = getString(R.string.section_football_value);
+            newsSection = getString(R.string.value_section_football);
             setTitle(R.string.section_football);
 
         } else if (id == R.id.nav_politics) {
-            newsSection = getString(R.string.section_politics_value);
+            newsSection = getString(R.string.value_section_politics);
             setTitle(R.string.section_politics);
 
         } else if (id == R.id.nav_opinions) {
-            newsSection = getString(R.string.section_opinions_value);
+            newsSection = getString(R.string.value_section_opinions);
             setTitle(R.string.section_opinions);
 
         } else if (id == R.id.nav_world_news) {
-            newsSection = getString(R.string.section_world_news_value);
+            newsSection = getString(R.string.value_section_world_news);
             setTitle(R.string.section_world_news);
 
         } else if (id == R.id.nav_tv_radio) {
-            newsSection = getString(R.string.section_tv_radio_value);
+            newsSection = getString(R.string.value_section_tv_radio);
             setTitle(R.string.section_tv_radio);
 
         }
