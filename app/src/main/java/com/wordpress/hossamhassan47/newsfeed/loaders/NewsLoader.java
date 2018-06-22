@@ -11,11 +11,6 @@ import java.util.List;
 public class NewsLoader extends AsyncTaskLoader<List<NewsItem>> {
 
     /**
-     * Tag for log messages
-     */
-    private static final String LOG_TAG = NewsLoader.class.getName();
-
-    /**
      * Query URL
      */
     private String mUrl;
@@ -46,7 +41,6 @@ public class NewsLoader extends AsyncTaskLoader<List<NewsItem>> {
         }
 
         // Perform the network request, parse the response, and extract a list of news items.
-        List<NewsItem> newsItems = QueryUtils.fetchNewsData(getContext(), mUrl);
-        return newsItems;
+        return QueryUtils.fetchNewsData(getContext(), mUrl);
     }
 }
