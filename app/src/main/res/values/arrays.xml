@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="timerList">
-        <item>After 5 seconds</item>
-        <item>After 10 seconds</item>
-        <item>After 15 seconds</item>
-        <item>After 20 seconds</item>
+    <!--Default Section-->
+    <string-array name="default_section">
+        <item>@string/section_world_news</item>
+        <item>@string/section_politics</item>
+        <item>@string/section_opinions</item>
+        <item>@string/section_life_and_style</item>
+        <item>@string/section_football</item>
+        <item>@string/section_tv_radio</item>
     </string-array>
-    <string-array name="timerListValues">
-        <item>5</item>
-        <item>10</item>
-        <item>15</item>
-        <item>20</item>
-    </string-array>
-    
-    <string-array name="musicQuality">
-        <item>128kbps</item>
-        <item>320kbps</item>
-        <item>Lossless</item>
-    </string-array>
-    <string-array name="musicQualityValues">
-        <item>128</item>
-        <item>320</item>
-        <item>Lossless</item>
+    <string-array name="default_section_values">
+        <item>@string/section_world_news_value</item>
+        <item>@string/section_politics_value</item>
+        <item>@string/section_opinions_value</item>
+        <item>@string/section_life_and_style_value</item>
+        <item>@string/section_football_value</item>
+        <item>@string/section_tv_radio_value</item>
     </string-array>
 
-    <string-array name="typesOfMusic">
-        <item>Pop</item>
-        <item>Classic</item>
-        <item>Rock</item>
-        <item>Hip hop</item>
+    <!--Star Rating-->
+    <string-array name="star_rating">
+        <item>@string/star_rating_1</item>
+        <item>@string/star_rating_2</item>
+        <item>@string/star_rating_3</item>
+        <item>@string/star_rating_4</item>
+        <item>@string/star_rating_5</item>
     </string-array>
-    <string-array name="typesOfMusicValues">
-        <item>Pop</item>
-        <item>Classic</item>
-        <item>Rock</item>
-        <item>Hiphop</item>
+    <string-array name="star_rating_values">
+        <item>@string/star_rating_1</item>
+        <item>@string/star_rating_2</item>
+        <item>@string/star_rating_3</item>
+        <item>@string/star_rating_4</item>
+        <item>@string/star_rating_5</item>
+    </string-array>
+
+    <!--Order By-->
+    <string-array name="order_by">
+        <item>@string/order_by_newest</item>
+        <item>@string/order_by_oldest</item>
+        <item>@string/order_by_relevance</item>
+    </string-array>
+    <string-array name="order_by_values">
+        <item>@string/order_by_newest_value</item>
+        <item>@string/order_by_oldest_value</item>
+        <item>@string/order_by_relevance_value</item>
+    </string-array>
+
+    <!--Order Date-->
+    <string-array name="order_date">
+        <item>@string/order_date_published</item>
+        <item>@string/order_date_newspaper_edition</item>
+        <item>@string/order_date_last_modified</item>
+    </string-array>
+    <string-array name="order_date_values">
+        <item>@string/order_date_published_value</item>
+        <item>@string/order_date_newspaper_edition_value</item>
+        <item>@string/order_date_last_modified_value</item>
     </string-array>
 </resources>

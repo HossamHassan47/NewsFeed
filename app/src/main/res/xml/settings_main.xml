@@ -1,71 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-        android:key="user_category"
-        android:title="USER">
-
-        <EditTextPreference
-            android:dialogMessage="Enter your full name"
-            android:dialogTitle="Your name"
-            android:inputType="textCapWords"
-            android:key="key_full_name"
-            android:summary="Hossam Hassan"
-            android:title="Name" />
-
-        <EditTextPreference
-            android:dialogMessage="Enter your email address"
-            android:dialogTitle="Your email"
-            android:inputType="textEmailAddress"
-            android:key="key_email"
-            android:summary="hossam.hassan@outlook.com"
-            android:title="Email" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="PLAYER">
-
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="key_enable_timer"
-            android:summary="Enable or disable sleep timer"
-            android:title="Enable sleep timer" />
+    <PreferenceCategory android:title="@string/pref_category_news">
+        <ListPreference
+            android:defaultValue="@string/section_world_news_value"
+            android:entries="@array/default_section"
+            android:entryValues="@array/default_section_values"
+            android:key="@string/key_default_section"
+            android:title="@string/title_default_section" />
 
         <ListPreference
-            android:dependency="key_enable_timer"
-            android:entries="@array/timerList"
-            android:entryValues="@array/timerListValues"
-            android:key="key_sleep_timer"
-            android:summary="Stop playing music after some time"
-            android:title="Sleep timer" />
+            android:defaultValue="@string/star_rating_4"
+            android:entries="@array/star_rating"
+            android:entryValues="@array/star_rating_values"
+            android:key="@string/key_star_rating"
+            android:title="@string/title_star_rating" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_ordering">
+        <ListPreference
+            android:defaultValue="@string/order_by_relevance_value"
+            android:entries="@array/order_by"
+            android:entryValues="@array/order_by_values"
+            android:key="@string/key_order_by"
+            android:title="@string/title_order_by" />
 
         <ListPreference
-            android:entries="@array/musicQuality"
-            android:entryValues="@array/musicQualityValues"
-            android:key="key_music_quality"
-            android:title="Music Quality" />
-
-        <MultiSelectListPreference
-            android:dialogTitle="Select all your options"
-            android:entries="@array/typesOfMusic"
-            android:entryValues="@array/typesOfMusicValues"
-            android:key="music_type"
-            android:summary="Press to show list"
-            android:title="Types of music" />
+            android:defaultValue="@string/order_date_published_value"
+            android:entries="@array/order_date"
+            android:entryValues="@array/order_date_values"
+            android:key="@string/key_order_date"
+            android:title="@string/title_order_date" />
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="OTHER">
-
-        <SwitchPreference
-            android:key="key_enable_notification"
-            android:editable="true"
-            android:title="Push notifications"/>
-        <RingtonePreference
-            android:key="key_notification_ringtone"
-            android:title="Notification ringtone"
-            android:summary="Choose notification ringtone"
-            android:ringtoneType="notification"
-            android:dependency="key_enable_notification"/>
-    </PreferenceCategory>
 </PreferenceScreen>

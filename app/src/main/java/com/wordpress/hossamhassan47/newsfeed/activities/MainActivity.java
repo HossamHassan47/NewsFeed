@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
 
         // Set first item selected by default
         navigationView.getMenu().getItem(0).setChecked(true);
-        setTitle(R.string.nav_world_news);
+        setTitle(R.string.section_world_news);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list_view_news);
@@ -203,28 +203,28 @@ public class MainActivity extends AppCompatActivity
 
         // Set Current section name & Title based on selected item
         if (id == R.id.nav_lifestyle) {
-            currentSection = getString(R.string.section_lifeandstyle);
-            setTitle(R.string.nav_life_and_style);
+            currentSection = getString(R.string.section_life_and_style_value);
+            setTitle(R.string.section_life_and_style);
 
         } else if (id == R.id.nav_football) {
-            currentSection = getString(R.string.section_football);
-            setTitle(R.string.nav_football);
+            currentSection = getString(R.string.section_football_value);
+            setTitle(R.string.section_football);
 
         } else if (id == R.id.nav_politics) {
-            currentSection = getString(R.string.section_politics);
-            setTitle(R.string.nav_politics);
+            currentSection = getString(R.string.section_politics_value);
+            setTitle(R.string.section_politics);
 
         } else if (id == R.id.nav_opinions) {
-            currentSection = getString(R.string.section_opinions);
-            setTitle(R.string.nav_opinion);
+            currentSection = getString(R.string.section_opinions_value);
+            setTitle(R.string.section_opinions);
 
         } else if (id == R.id.nav_world_news) {
-            currentSection = getString(R.string.section_worldnews);
-            setTitle(R.string.nav_world_news);
+            currentSection = getString(R.string.section_world_news_value);
+            setTitle(R.string.section_world_news);
 
         } else if (id == R.id.nav_tv_radio) {
-            currentSection = getString(R.string.section_tv_radio);
-            setTitle(R.string.nav_television_and_radio);
+            currentSection = getString(R.string.section_tv_radio_value);
+            setTitle(R.string.section_tv_radio);
 
         }
 

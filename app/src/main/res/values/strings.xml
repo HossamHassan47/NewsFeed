@@ -17,18 +17,58 @@
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
 
-    <string name="nav_football">Football</string>
-    <string name="nav_television_and_radio"><![CDATA[Television & radio]]></string>
-    <string name="nav_life_and_style">Life and style</string>
-    <string name="nav_politics">Politics</string>
-    <string name="nav_world_news">World news</string>
-    <string name="nav_opinion">Opinion</string>
 
-    <string name="section_lifeandstyle">lifeandstyle</string>
-    <string name="section_football">football</string>
-    <string name="section_politics">politics</string>
-    <string name="section_opinions">commentisfree</string>
-    <string name="section_worldnews">world</string>
-    <string name="section_tv_radio">tv-and-radio</string>
+    <!--News Sections-->
+    <string name="section_life_and_style">Life and style</string>
+    <string name="section_football">Football</string>
+    <string name="section_politics">Politics</string>
+    <string name="section_opinions">Opinion</string>
+    <string name="section_world_news">World news</string>
+    <string name="section_tv_radio"><![CDATA[Television & radio]]></string>
 
+    <string name="section_life_and_style_value" translatable="true">lifeandstyle</string>
+    <string name="section_football_value" translatable="true">football</string>
+    <string name="section_politics_value" translatable="true">politics</string>
+    <string name="section_opinions_value" translatable="true">commentisfree</string>
+    <string name="section_world_news_value" translatable="true">world</string>
+    <string name="section_tv_radio_value" translatable="true">tv-and-radio</string>
+
+    <!--Star Rating-->
+    <string name="star_rating_1">1</string>
+    <string name="star_rating_2">2</string>
+    <string name="star_rating_3">3</string>
+    <string name="star_rating_4">4</string>
+    <string name="star_rating_5">5</string>
+
+    <!--Order By-->
+    <string name="order_by_newest">Newest</string>
+    <string name="order_by_oldest">Oldest</string>
+    <string name="order_by_relevance">Relevance</string>
+
+    <string name="order_by_newest_value" translatable="true">newest</string>
+    <string name="order_by_oldest_value" translatable="true">oldest</string>
+    <string name="order_by_relevance_value" translatable="true">relevance</string>
+
+    <!--Order Date-->
+    <string name="order_date_published">Published</string>
+    <string name="order_date_newspaper_edition">Newspaper Edition</string>
+    <string name="order_date_last_modified">Last Modified</string>
+
+    <string name="order_date_published_value" translatable="true">published</string>
+    <string name="order_date_newspaper_edition_value" translatable="true">newspaper-edition</string>
+    <string name="order_date_last_modified_value" translatable="true">last-modified</string>
+
+    <!--Preference Categories-->
+    <string name="pref_category_ordering">ORDERING</string>
+    <string name="pref_category_news">NEWS</string>
+
+    <string name="key_default_section">key_default_section</string>
+    <string name="key_star_rating">key_star_rating</string>
+    <string name="key_order_date">key_order_date</string>
+    <string name="key_order_by">key_order_by</string>
+
+    <string name="title_default_section">Default news section</string>
+    <string name="title_star_rating">Minimum star rating</string>
+    <string name="title_order_date">Order date</string>
+    <string name="title_order_by">Order by</string>
 </resources>

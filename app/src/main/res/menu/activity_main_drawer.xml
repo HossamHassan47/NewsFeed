@@ -7,27 +7,27 @@
         <item
             android:id="@+id/nav_world_news"
             android:icon="@drawable/ic_world_news"
-            android:title="@string/nav_world_news" />
+            android:title="@string/section_world_news" />
         <item
             android:id="@+id/nav_politics"
             android:icon="@drawable/ic_politics"
-            android:title="@string/nav_politics" />
+            android:title="@string/section_politics" />
         <item
             android:id="@+id/nav_opinions"
             android:icon="@drawable/ic_opinion"
-            android:title="@string/nav_opinion" />
+            android:title="@string/section_opinions" />
         <item
             android:id="@+id/nav_lifestyle"
             android:icon="@drawable/ic_lifestyle"
-            android:title="@string/nav_life_and_style" />
+            android:title="@string/section_life_and_style" />
         <item
             android:id="@+id/nav_football"
             android:icon="@drawable/ic_football"
-            android:title="@string/nav_football" />
+            android:title="@string/section_football" />
         <item
             android:id="@+id/nav_tv_radio"
             android:icon="@drawable/ic_television"
-            android:title="@string/nav_television_and_radio" />
+            android:title="@string/section_tv_radio" />
     </group>
 
 </menu>

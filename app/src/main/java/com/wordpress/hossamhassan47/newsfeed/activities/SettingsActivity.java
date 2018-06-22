@@ -34,11 +34,10 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
-            bindPreferenceSummaryToValue(findPreference("key_full_name"));
-            bindPreferenceSummaryToValue(findPreference("key_email"));
-            bindPreferenceSummaryToValue(findPreference("key_sleep_timer"));
-            bindPreferenceSummaryToValue(findPreference("key_music_quality"));
-            bindPreferenceSummaryToValue(findPreference("key_notification_ringtone"));
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_default_section)));
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_star_rating)));
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_order_by)));
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_order_date)));
         }
 
         private void bindPreferenceSummaryToValue(Preference preference) {
@@ -64,21 +63,6 @@ public class SettingsActivity extends AppCompatActivity {
                 preference.setSummary(index >= 0 ? listPreference.getEntries()[index] : null);
             } else if (preference instanceof EditTextPreference) {
                 preference.setSummary(stringValue);
-            } else if (preference instanceof RingtonePreference){
-                if(TextUtils.isEmpty(stringValue)){
-                    // No ringtone selected
-                    preference.setSummary("Silent");
-                }else{
-                    Ringtone ringtone = RingtoneManager.getRingtone(preference.getContext(),
-                            Uri.parse(stringValue));
-
-                    if(ringtone == null){
-                        preference.setSummary("Choose notification ringtone");
-                    }else{
-                        String name = ringtone.getTitle(preference.getContext());
-                        preference.setSummary(name);
-                    }
-                }
             }
 
             return true;
