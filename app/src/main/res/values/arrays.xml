@@ -18,22 +18,6 @@
         <item>@string/section_tv_radio_value</item>
     </string-array>
 
-    <!--Star Rating-->
-    <string-array name="star_rating">
-        <item>@string/star_rating_1</item>
-        <item>@string/star_rating_2</item>
-        <item>@string/star_rating_3</item>
-        <item>@string/star_rating_4</item>
-        <item>@string/star_rating_5</item>
-    </string-array>
-    <string-array name="star_rating_values">
-        <item>@string/star_rating_1</item>
-        <item>@string/star_rating_2</item>
-        <item>@string/star_rating_3</item>
-        <item>@string/star_rating_4</item>
-        <item>@string/star_rating_5</item>
-    </string-array>
-
     <!--Order By-->
     <string-array name="order_by">
         <item>@string/order_by_newest</item>

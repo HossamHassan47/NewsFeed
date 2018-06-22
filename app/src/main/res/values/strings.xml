@@ -32,13 +32,6 @@
     <string name="section_world_news_value" translatable="true">world</string>
     <string name="section_tv_radio_value" translatable="true">tv-and-radio</string>
 
-    <!--Star Rating-->
-    <string name="star_rating_1">1</string>
-    <string name="star_rating_2">2</string>
-    <string name="star_rating_3">3</string>
-    <string name="star_rating_4">4</string>
-    <string name="star_rating_5">5</string>
-
     <!--Order By-->
     <string name="order_by_newest">Newest</string>
     <string name="order_by_oldest">Oldest</string>
@@ -59,24 +52,29 @@
 
     <!--Preference Categories-->
     <string name="pref_category_ordering">ORDERING</string>
-    <string name="pref_category_news">NEWS</string>
+    <string name="pref_category_navigation">NAVIGATION</string>
 
     <!--Preference keys-->
     <string name="key_default_section">key_default_section</string>
-    <string name="key_star_rating">key_star_rating</string>
     <string name="key_order_date">key_order_date</string>
     <string name="key_order_by">key_order_by</string>
 
     <!--Preference titles-->
-    <string name="title_default_section">Default news section</string>
-    <string name="title_star_rating">Minimum star rating</string>
+    <string name="title_default_section">Default section</string>
     <string name="title_order_date">Order date</string>
     <string name="title_order_by">Order by</string>
 
     <!--Preference default values-->
-    <string name="section_default_value" translatable="true">world</string>
-    <string name="order_date_default_value" translatable="true">published</string>
-    <string name="order_by_default_value" translatable="true">newest</string>
-    <string name="star_rating_default_value">3</string>
+    <string name="default_value_section" translatable="false">world</string>
+    <string name="default_value_order_date" translatable="false">published</string>
+    <string name="default_value_order_by" translatable="false">newest</string>
+    <string name="default_value_star_rating" translatable="false">3</string>
+
+    <!--URL-->
+    <string name="url_base"><![CDATA[https://content.guardianapis.com/search?format=json&from-date=2018-06-01&show-fields=headline,thumbnail,trailText&show-tags=contributor&order-by=newest&api-key=edb248f4-7da1-4302-8920-1dfd410c2585]]></string>
+    <string name="url_filter_section">section</string>
+    <string name="url_filter_star_rating">star-rating</string>
+    <string name="url_filter_order_by">order-by</string>
+    <string name="url_filter_use_date">use-date</string>
 
 </resources>

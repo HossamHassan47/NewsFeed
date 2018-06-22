@@ -35,7 +35,6 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.settings_main);
 
             bindPreferenceSummaryToValue(findPreference(getString(R.string.key_default_section)));
-            bindPreferenceSummaryToValue(findPreference(getString(R.string.key_star_rating)));
             bindPreferenceSummaryToValue(findPreference(getString(R.string.key_order_by)));
             bindPreferenceSummaryToValue(findPreference(getString(R.string.key_order_date)));
         }

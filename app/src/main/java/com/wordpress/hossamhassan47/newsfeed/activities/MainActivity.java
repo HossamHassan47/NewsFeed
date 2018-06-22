@@ -4,10 +4,13 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -36,12 +39,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, LoaderManager.LoaderCallbacks<List<NewsItem>> {
 
-    // Request URL
-    private static final String NEWS_REQUEST_URL =
-            "https://content.guardianapis.com/search?format=json&section=%s&from-date=2018-06-01&show-fields=headline,thumbnail,trailText&show-tags=contributor&order-by=newest&api-key=edb248f4-7da1-4302-8920-1dfd410c2585";
-
     // Current Section Name
-    private String currentSection = "world";
+    private String newsSection;
+    private String orderBy;
+    private String orderDate;
 
     // Loader ID
     private static final int NEWS_LOADER_ID = 1;
@@ -73,9 +74,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-        // Set first item selected by default
-        navigationView.getMenu().getItem(0).setChecked(true);
-        setTitle(R.string.section_world_news);
+        // Load Preferences
+        loadPreferenceValues();
+
+        // Selected default section
+        navigationView.getMenu().getItem(getDefaultSectionIndex()).setChecked(true);
 
         // Find a reference to the {@link ListView} in the layout
         ListView newsListView = (ListView) findViewById(R.id.list_view_news);
@@ -132,10 +135,73 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private void loadPreferenceValues(){
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        newsSection = sharedPrefs.getString(
+                getString(R.string.key_default_section),
+                getString(R.string.default_value_section));
+
+        orderBy = sharedPrefs.getString(
+                getString(R.string.key_order_by),
+                getString(R.string.default_value_order_by));
+
+        orderDate = sharedPrefs.getString(
+                getString(R.string.key_order_date),
+                getString(R.string.default_value_order_date));
+    }
+
+    private int getDefaultSectionIndex(){
+        int index;
+        switch (newsSection){
+            case "world":
+                index = 0;
+                setTitle(R.string.section_world_news);
+            break;
+            case "politics":
+                index = 1;
+                setTitle(R.string.section_politics);
+                break;
+            case "commentisfree":
+                index = 2;
+                setTitle(R.string.section_opinions);
+                break;
+            case "lifeandstyle":
+                index = 3;
+                setTitle(R.string.section_life_and_style);
+                break;
+            case "football":
+                index = 4;
+                setTitle(R.string.section_football);
+                break;
+            case "tv-and-radio":
+                index = 5;
+                setTitle(R.string.section_tv_radio);
+            default:
+                index = 0;
+                setTitle(R.string.section_world_news);
+                break;
+        }
+
+        return index;
+    }
+
     @Override
     public Loader<List<NewsItem>> onCreateLoader(int id, Bundle args) {
-        // Set Current Section in the News Request URL
-        return new NewsLoader(this, String.format(NEWS_REQUEST_URL, currentSection));
+
+        // parse breaks apart the URI string that's passed into its parameter
+        Uri baseUri = Uri.parse(getString(R.string.url_base));
+
+        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        // Append query parameter and its value. For example, the `format=geojson`
+        uriBuilder.appendQueryParameter(getString(R.string.url_filter_section), newsSection);
+        uriBuilder.appendQueryParameter(getString(R.string.url_filter_order_by), orderBy);
+        uriBuilder.appendQueryParameter(getString(R.string.url_filter_use_date), orderDate);
+
+        Log.v("URL", uriBuilder.toString());
+        return new NewsLoader(this, uriBuilder.toString());
     }
 
     @Override
@@ -203,27 +269,27 @@ public class MainActivity extends AppCompatActivity
 
         // Set Current section name & Title based on selected item
         if (id == R.id.nav_lifestyle) {
-            currentSection = getString(R.string.section_life_and_style_value);
+            newsSection = getString(R.string.section_life_and_style_value);
             setTitle(R.string.section_life_and_style);
 
         } else if (id == R.id.nav_football) {
-            currentSection = getString(R.string.section_football_value);
+            newsSection = getString(R.string.section_football_value);
             setTitle(R.string.section_football);
 
         } else if (id == R.id.nav_politics) {
-            currentSection = getString(R.string.section_politics_value);
+            newsSection = getString(R.string.section_politics_value);
             setTitle(R.string.section_politics);
 
         } else if (id == R.id.nav_opinions) {
-            currentSection = getString(R.string.section_opinions_value);
+            newsSection = getString(R.string.section_opinions_value);
             setTitle(R.string.section_opinions);
 
         } else if (id == R.id.nav_world_news) {
-            currentSection = getString(R.string.section_world_news_value);
+            newsSection = getString(R.string.section_world_news_value);
             setTitle(R.string.section_world_news);
 
         } else if (id == R.id.nav_tv_radio) {
-            currentSection = getString(R.string.section_tv_radio_value);
+            newsSection = getString(R.string.section_tv_radio_value);
             setTitle(R.string.section_tv_radio);
 
         }
